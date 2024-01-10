@@ -2,18 +2,20 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { NewComponentComponent } from './components/new-component/new-component.component';
+import { TemplateBindingComponent } from './components/template/template-binding/template-binding.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, NewComponentComponent],
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    NewComponentComponent,
+    TemplateBindingComponent,
+  ],
   template: `<router-outlet></router-outlet>
-  <h1>Curso Angular</h1>
-  <div class="theme-dark">
-    <app-new-component/>
-  </div>
-  <app-new-component/>
-  `,
+    <h1>Curso Angular</h1>
+    <app-template-binding /> `,
 })
 export class AppComponent {
   title = 'aulas-angular17';
