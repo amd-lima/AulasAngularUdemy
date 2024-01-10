@@ -1,0 +1,29 @@
+// Seletor especial que se refere ao elemento que está sendo estilizado. É utilizado para estilizar o elemento que está sendo estilizado e não os filhos dele.
+// Pode definir estilos específicos para o componente raiz de um componente.
+:host{
+  h2{
+    background-color: red;
+  }
+}
+
+*
+/*
+:host-context(.theme-light) permite aplicar estilos com base no contexto do componente pai.
+Ex.: Alterar a cor do texto de um componente filho com base no tema do componente pai.
+*/
+:host-context(.theme-dark) h2{
+  background-color:black;
+  color: white
+}
+
+/*
+::ng-deep é um mecanismo que permite que os estilos definidos em um componente sejam aplicados aos elementos.
+
+Permite que contorne o encapsulamento de estilos do Angular e estilize elementos de componentes filhos.
+*/
+
+::ng-deep{
+  .theme-dark{
+    border: 5px solid gray;
+  }
+}
