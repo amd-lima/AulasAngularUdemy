@@ -1,0 +1,49 @@
+<h2>Template</h2>
+<h3>Text Interpolation Example:</h3>
+<p>My name is {{ name }}</p>
+<p>My age is {{ age }}</p>
+<p>Soma using function: {{ sum(10, 10) }} </p>
+<p>Soma using expression: 1 + 1 = {{ 1 + 1 }}</p>
+<p>Verify age is more than 18: {{ age < 18? false: true}} </p>
+
+<hr/>
+
+<!-- Binding <element [property]='value' /> -->
+<h2>Property Binding Example:</h2>
+<button [disabled]="buttonDisabled">Click me</button>
+<!-- <img [src]="imagePath" /> -->
+<hr/>
+
+<!-- <element [attr.atribute-you-are-targing]='value' /> -->
+<h2>Attribute Binding</h2>
+<p [attr.title]="name" [attr.aria-label]="name">Amanda</p>
+<hr/>
+
+<!-- Class and Style binding -->
+<h2>Class and Style Binding</h2>
+<p [class.background-red]="age>=30"[class.background-blue]="age<30">{{ name }}</p>
+<p [style.text-decoration]="textDecoration"> {{ age }} </p>
+<p [style.text-decoration]="'underline'"> {{ age }} </p>
+<hr/>
+
+<!-- Event Binding <element (TargetEventName)='TemplateStatement'/>-->
+<h2>Event Binding</h2>
+<button (click)="sumAge()">+</button>
+<button (click)="subAge()">-</button>
+<input (keydown.shift.t)="onKeyDown($event)">
+<hr/>
+<div style="background-color: red; width: 30px; height: 30px; margin-top: 10px;" (mousemove)="onMouseEvent($event)">
+</div>
+<hr/>
+
+<!-- Two-way data binding -->
+<h2>Two-way data binding</h2>
+<input [(ngModel)]="name" />
+{{ name }}
+<hr/>
+
+<h3>Diretivas e Atributos</h3>
+<div [ngClass]="{'background-green': true}">Classes condicionais.</div>
+
+<div [ngStyle]="{color: age > 30? 'red':'green', 'font-size': name ==='Amanda Lima'? '10px': '20px'}">Estilo dinâmico</div>
+
