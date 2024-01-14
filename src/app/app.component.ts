@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { NewComponentComponent } from './components/new-component/new-component.component';
 import { TemplateBindingComponent } from './components/template/template-binding/template-binding.component';
 import { TemplateVariablesComponent } from './components/template/template-variables/template-variables.component';
+import { TemplateControlFlowComponent } from './components/template/template-control-flow/template-control-flow.component';
 
 @Component({
   selector: 'app-root',
@@ -13,12 +14,15 @@ import { TemplateVariablesComponent } from './components/template/template-varia
     RouterOutlet,
     NewComponentComponent,
     TemplateBindingComponent,
-    TemplateVariablesComponent
+    TemplateVariablesComponent,
+    TemplateControlFlowComponent
   ],
   template: `<router-outlet></router-outlet>
     <h1>Curso Angular</h1>
-    <app-template-binding />
-    <app-template-variables />`,
+    <!-- <app-template-binding />
+    <app-template-variables /> -->
+    <app-template-control-flow />
+    `,
 })
 export class AppComponent {
   title = 'aulas-angular17';
