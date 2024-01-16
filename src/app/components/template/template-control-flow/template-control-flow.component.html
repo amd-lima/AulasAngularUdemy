@@ -16,4 +16,117 @@
 <ng-template #isFalse>
   false
 </ng-template>
+<hr>
 
+<h3>FOR</h3>
+<!-- New Method -->
+<!-- mostra carregando até aparecer os itens -->
+@if(loadingData$ | async; as data){
+  <ul>
+    @for(item of data; track item){
+      <li>{{item}}</li>
+    }
+  </ul>
+}@else{
+  <p>Carregando...</p>
+}
+<!-- Fazendo diretamente o for -->
+@for(item of loadingData$ | async; track item){
+  <li>{{item}}</li>
+}
+<hr>
+
+@for(item of itens; track item.name;
+  let i = $index;
+  let f = $first;
+  let l = $last;
+  let e = $even;
+  let o = $odd;
+  let c = $count)
+  {
+  <p>{{item.name}}</p>
+  <p>index - {{i}}</p>
+  <p>first - {{f}}</p>
+  <p>last - {{l}}</p>
+  <p>even - {{e}}</p>
+  <p>odd - {{o}}</p>
+  <p>count - {{c}}</p>
+  }
+
+  <!-- Empty -->
+  <ul>
+    @for(item of itensEmpty; track item.name){
+      <li>{{item.name}}</li>
+    }@empty {
+      <li>Nenhum item</li>
+    }
+  </ul>
+
+  <hr>
+
+<!-- Old Method -->
+<ng-container *ngIf="loadingData$ | async as data; else loading">
+  <ul>
+    <ng-container *ngFor="let item of data; trackBy: trackByFn">
+      <li>{{item}}</li>
+    </ng-container>
+  </ul>
+</ng-container>
+<ng-template #loading>
+  <p>Carregando ...</p>
+</ng-template>
+
+<ng-container
+*ngFor="let item of itens;
+  let i = index;
+  let f = first;
+  let l = last;
+  let e = even;
+  let o = odd;
+  let c = count">
+
+  <p>{{item.name}}</p>
+  <p>index - {{i}}</p>
+  <p>first - {{f}}</p>
+  <p>last - {{l}}</p>
+  <p>even - {{e}}</p>
+  <p>odd - {{o}}</p>
+  <p>count - {{c}}</p>
+</ng-container>
+
+<input #name>
+<button (click)="addNewName(name.value)">Add Name</button>
+
+<!-- Empty -->
+<ng-container *ngIf="itensEmpty.length === 0; else itensExist">
+  <li>Não contem valores</li>
+</ng-container>
+
+<ng-template #itensExist>
+  <ng-container *ngFor="let item of itens">
+    {{item.name}}
+  </ng-container>
+</ng-template>
+<hr>
+
+<!-- Switch case -->
+<h3>Switch Case</h3>
+<!-- New Method -->
+@switch(switchCondition){
+  @case('A'){
+    <p>Case A</p>
+  }
+  @case('B'){
+    <p>Case B</p>
+  }
+  @default{
+    <p>Default</p>
+  }
+}
+
+<!-- Old Method -->
+<ng-container [ngSwitch]="switchCondition">
+  <p *ngSwitchCase="'A'">Case A</p>
+  <p *ngSwitchCase="'B'">Case B</p>
+  <p *ngSwitchDefault>Default</p>
+</ng-container>
