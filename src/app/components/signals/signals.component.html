@@ -1,0 +1,50 @@
+<h2>signals</h2>
+
+<p> {{firstName()}} {{lastName()}}</p>
+<p>Full name: {{fullName()}}</p>
+
+<ul>
+  @for(item of array(); track item){
+    <li>{{item}}</li>
+  }
+</ul>
+
+<button (click)="updateName()">Update name</button>
+<button (click)="updateArray()">Update Array</button>
+
+<h2>Effect</h2>
+<p>Raramente são necessarios, mas podem ser uteis em circunstancias especificas. </p>
+<li>Registro de dados sendo exibidos e quando eles mudam, seja para análise ou como ferramenta de depuração</li>
+<li>Manter dados sincronizados com windows.localStorage</li>
+<li>Add comportamento DOM personalizado que não pode ser expresso com sintaxe de modelo</li>
+<li>Executar renderização personalizada em um canvas, bib. de gráficos ou outras de UL.</li>
+
+<h3> Mais sobre...</h3>
+<strong>Signals</strong>
+ são uma nova funcionalidade introduzida no Angular 17 que permite que os componentes se comuniquem entre si de forma assíncrona. Isso pode ser usado para melhorar a performance e a escalabilidade das aplicações.
+
+<h4>Exemplos</h4>
+
+Aqui estão alguns exemplos de como usar Signals para melhorar o desempenho e a escalabilidade das aplicações:
+
+<li>
+  <strong>Comunicação entre componentes:</strong> Você pode usar Signals para permitir que componentes se comuniquem entre si de forma assíncrona. Isso pode ajudar a melhorar o desempenho das aplicações, pois os componentes não precisam esperar que a resposta seja recebida antes de continuar.
+</li>
+<li>
+  <strong>Notificações: </strong>Você pode usar Signals para enviar notificações para outros componentes. Isso pode ser útil para notificar os componentes de eventos que ocorrem em outros lugares da aplicação.
+</li>
+<li>
+  <strong>Atualizações de dados: </strong>Você pode usar Signals para atualizar dados em vários componentes de forma assíncrona. Isso pode ajudar a melhorar a escalabilidade das aplicações, pois os componentes não precisam esperar que os dados sejam atualizados antes de renderizar.
+</li>
+<h4>Considerações</h4>
+
+Ao usar Signals, é importante considerar os seguintes fatores:
+
+<li>
+  <strong>Eficiência:</strong> Os Signals podem melhorar o desempenho e a escalabilidade das aplicações, mas eles também podem adicionar complexidade.
+</li>
+<li>
+  <strong>Manutenção:</strong> Os Signals podem tornar as aplicações mais difíceis de manter. É importante documentar cuidadosamente como os Signals são usados na aplicação.
+</li>
+
+Os Signals são uma nova funcionalidade poderosa que pode ser usada para melhorar o desempenho e a escalabilidade das aplicações Angular.
