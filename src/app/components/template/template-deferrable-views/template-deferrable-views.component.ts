@@ -10,5 +10,6 @@ import { NewComponentComponent } from '../../new-component/new-component.compone
   styleUrl: './template-deferrable-views.component.scss'
 })
 export class TemplateDeferrableViewsComponent {
-
+  public isTrue = false;
 }
+

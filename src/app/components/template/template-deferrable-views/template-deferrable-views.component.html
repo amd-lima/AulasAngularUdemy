@@ -33,6 +33,9 @@ prefetch - quando o elemento é pré-carregado pelo navegador.
   é trocado pelo conteudo carregado lentamente (o que pode ser uma operação assíncrona se as dependencias precisarem ser buscadas).
 </h4>
 <p>Nota: vários on triggers são sempre condições OR. Da mesma forma, on misturado com when tbm são condições OR</p>
+<hr>
+
+<h3>ON</h3>
 
 @defer{
   <app-new-component />
@@ -65,15 +68,50 @@ prefetch - quando o elemento é pré-carregado pelo navegador.
   <p>Mostrar em caso de erro.</p>
 }
 
-<h2 style="margin-bottom: 5000px;">Go to bottom</h2>
-
-@defer(on viewport){
+<!-- Carrega de inicio, mas só mostra com a interação -->
+@defer(on interaction; prefetch on interaction(trigger)){
   <app-new-component />
 } @placeholder {
-  <p>Mostrar antes de carregar algo.</p>
+  <p #trigger>Clicar aqui antes de carregar algo.</p>
 } @loading {
   <p>Loading...</p>
 } @error {
   <p>Mostrar em caso de erro.</p>
 }
 
+<hr>
+
+<h3>WHEN</h3>
+<button (click)="isTrue = true">Show defer</button>
+
+@defer(when isTrue){
+  <app-new-component />
+} @placeholder {
+  <p #trigger>Clicar aqui antes de carregar algo.</p>
+} @loading {
+  <p>Loading...</p>
+} @error {
+  <p>Mostrar em caso de erro.</p>
+}
+
+<h3>Placeholder minimum </h3>
+@defer(when isTrue){
+  <app-new-component />
+} @placeholder(minimum 5000ms) {
+  <p #trigger>Clicar aqui antes de carregar algo.</p>
+} @loading {
+  <p>Loading...</p>
+} @error {
+  <p>Mostrar em caso de erro.</p>
+}
+
+<h3>Loadind minimum </h3>
+@defer(on interaction){
+  <app-new-component />
+} @placeholder{
+  <p #trigger>Clicar aqui antes de carregar algo.</p>
+} @loading(after 150ms; minimum 5s) {
+  <p>Loading...</p>
+} @error {
+  <p>Mostrar em caso de erro.</p>
+}
