@@ -1,0 +1,79 @@
+<h2>Deferrable Views</h2>
+
+<h3 style="color: rgb(92, 91, 91);">Deferrable views são views que podem ser carregadas de forma assíncrona, ou seja, só serão carregadas quando forem necessárias.</h3>
+<h4>
+  on - especifica uma condição de acionador usando um adicionador da lista.
+  (idle, timer, viewport, interaction, hover, immediate, prefetch)
+</h4>
+  <li>
+    idle - quando o navegador está ocioso (sem eventos de entrada) por um determinado período de tempo.
+  </li>
+  <li>
+timer - quando um determinado período de tempo passa.
+  </li>
+  <li>
+viewport - quando o elemento está visível na janela de visualização.
+  </li>
+  <li>
+hover - quando o elemento é focado pelo mouse.
+  </li>
+  <li>
+interaction - quando o elemento é focado pelo mouse ou teclado.
+  </li>
+  <li>
+immediate - quando o elemento é renderizado pela primeira vez.
+  </li>
+  <li>
+prefetch - quando o elemento é pré-carregado pelo navegador.
+  </li>
+
+
+<h4>
+  when - especifica uma condição imperativa que retorna um boolean. Quando esta condição for verdadeira, o espaço reservado
+  é trocado pelo conteudo carregado lentamente (o que pode ser uma operação assíncrona se as dependencias precisarem ser buscadas).
+</h4>
+<p>Nota: vários on triggers são sempre condições OR. Da mesma forma, on misturado com when tbm são condições OR</p>
+
+@defer{
+  <app-new-component />
+} @placeholder {
+  <p>Mostrar antes de carregar algo.</p>
+} @loading {
+  <p>Loading...</p>
+} @error {
+  <p>Mostrar em caso de erro.</p>
+}
+
+@defer(on timer(1000ms)){
+  <app-new-component />
+} @placeholder {
+  <p>Mostrar antes de carregar algo por 1s.</p>
+} @loading {
+  <p>Loading...</p>
+} @error {
+  <p>Mostrar em caso de erro.</p>
+}
+
+
+@defer(on interaction(trigger)){
+  <app-new-component />
+} @placeholder {
+  <p #trigger>Clicar aqui antes de carregar algo.</p>
+} @loading {
+  <p>Loading...</p>
+} @error {
+  <p>Mostrar em caso de erro.</p>
+}
+
+<h2 style="margin-bottom: 5000px;">Go to bottom</h2>
+
+@defer(on viewport){
+  <app-new-component />
+} @placeholder {
+  <p>Mostrar antes de carregar algo.</p>
+} @loading {
+  <p>Loading...</p>
+} @error {
+  <p>Mostrar em caso de erro.</p>
+}
+
