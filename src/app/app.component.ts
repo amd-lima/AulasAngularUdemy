@@ -7,6 +7,7 @@ import { TemplateVariablesComponent } from './components/template/template-varia
 import { TemplateControlFlowComponent } from './components/template/template-control-flow/template-control-flow.component';
 import { TemplateDeferrableViewsComponent } from './components/template/template-deferrable-views/template-deferrable-views.component';
 import { SignalsComponent } from './components/signals/signals.component';
+import { FatherComponent } from './components/input-output/father/father.component';
 
 @Component({
   selector: 'app-root',
@@ -19,15 +20,18 @@ import { SignalsComponent } from './components/signals/signals.component';
     TemplateVariablesComponent,
     TemplateControlFlowComponent,
     TemplateDeferrableViewsComponent,
-    SignalsComponent
+    SignalsComponent,
+    FatherComponent
   ],
   template: `<router-outlet></router-outlet>
     <h1>Curso Angular</h1>
     <!-- <app-template-binding />
     <app-template-variables />
     <app-template-control-flow />
-    <app-template-deferrable-views />-->
+    <app-template-deferrable-views />
     <app-signals />
+    -->
+    <app-father />
     `,
 })
 export class AppComponent {
